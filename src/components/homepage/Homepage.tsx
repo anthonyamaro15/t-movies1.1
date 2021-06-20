@@ -1,7 +1,11 @@
+import Navbar from "./Navbar";
+import Header from "./Header";
+
 const HomePage = () => {
    return (
       <div>
-         <h3>hi</h3>
+         <Navbar />
+         <Header />
       </div>
    );
 };
