@@ -17,7 +17,7 @@ const Header = () => {
    return (
       <div className="Header">
          <div className="Header-inner-wrapper">
-            <h1>Unlimited movies, TV shows, and more</h1>
+            <h1>Unlimited movies, TV shows, and more.</h1>
             <p className="watch-anywhere">Watch anywhere. Cancel anytime.</p>
             <p>
                Ready to watch? Enter your email to create or restart your
@@ -33,12 +33,14 @@ const Header = () => {
                      <span className="error-message">Email is required!</span>
                   )}
                </label>
-               <button>
-                  get started
-                  <span>
-                     <IoIosArrowForward />
-                  </span>
-               </button>
+               <div className="btn-wrapper">
+                  <button>
+                     get started
+                     <span>
+                        <IoIosArrowForward />
+                     </span>
+                  </button>
+               </div>
             </form>
          </div>
       </div>

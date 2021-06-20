@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Header from "./Header";
 import Content from "./Content";
+import Footer from "./Footer";
 
 const HomePage = () => {
    return (
@@ -8,6 +9,7 @@ const HomePage = () => {
          <Navbar />
          <Header />
          <Content />
+         <Footer />
       </div>
    );
 };
