@@ -1,0 +1,139 @@
+.Navbar {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 5;
+
+   nav {
+      max-width: 70%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.7rem 1rem;
+      align-items: center;
+
+      span {
+         color: red;
+         font-weight: 600;
+         font-size: 3rem;
+         text-transform: uppercase;
+      }
+
+      .nav-links {
+         a {
+            display: inline-block;
+            padding: 0.4rem 1.1rem;
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: capitalize;
+            background: #e50914;
+            border-radius: 3px;
+            color: #fff;
+            font-weight: 300;
+            &:first-child {
+               margin-right: 2rem;
+            }
+         }
+      }
+   }
+}
+
+.Header {
+   height: 65vh;
+   background: url("../../imgs/bg.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   color: #fff;
+   position: relative;
+
+   &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+   }
+
+   .Header-inner-wrapper {
+      z-index: 5;
+      max-width: 750px;
+      h1 {
+         font-size: 4rem;
+      }
+
+      p {
+         font-size: 1.2rem;
+      }
+
+      .watch-anywhere {
+         margin: 1rem 0 2rem;
+         font-size: 1.6rem;
+      }
+
+      .get-started {
+         display: flex;
+         justify-content: center;
+         margin-top: 1.2rem;
+
+         height: 5vh;
+         label {
+            display: inline-block;
+            width: 67%;
+            height: 100%;
+            position: relative;
+
+            input {
+               display: inline-block;
+               width: 100%;
+               height: 100%;
+               padding: 0 0.5rem;
+               font-size: 1rem;
+               font-weight: 300;
+               outline: none;
+               border: none;
+               border-right: 1px solid grey;
+            }
+
+            .error-message {
+               position: absolute;
+               top: 4.3rem;
+               left: 0;
+               font-size: 0.9rem;
+               color: #ffa00a;
+               font-weight: 300;
+            }
+         }
+
+         button {
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #e50914;
+            height: 100%;
+            width: 33%;
+            font-size: 1.875rem;
+            font-weight: 300;
+            cursor: pointer;
+            position: relative;
+
+            text-transform: capitalize;
+            span {
+               color: #fff;
+               position: absolute;
+               top: 1rem;
+               right: 0.5rem;
+               font-weight: 100;
+            }
+         }
+      }
+   }
+}
