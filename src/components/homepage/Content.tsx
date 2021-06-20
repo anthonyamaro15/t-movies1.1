@@ -148,12 +148,14 @@ const Content = () => {
                      <span className="error-message">Email is required!</span>
                   )}
                </label>
-               <button>
-                  get started
-                  <span>
-                     <IoIosArrowForward />
-                  </span>
-               </button>
+               <div className="btn-wrapper">
+                  <button>
+                     get started
+                     <span>
+                        <IoIosArrowForward />
+                     </span>
+                  </button>
+               </div>
             </form>
          </div>
          <div className="border"></div>
