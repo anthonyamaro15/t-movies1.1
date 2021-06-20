@@ -1,22 +1,23 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import SmoothCollapse from "react-smooth-collapse";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
-
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 
 import img1 from "../../imgs/img1.png";
 import img2 from "../../imgs/img2.png";
 import img3 from "../../imgs/img3.png";
 import img4 from "../../imgs/img4.png";
 
+import { askedQuestions } from "../../configs/questions";
+
 type FormTypes = {
    email: string;
 };
 
 const Content = () => {
-   const [close, setClose] = useState(false);
+   const [questinsData, setQuestionsData] = useState(askedQuestions);
    const {
       register,
       handleSubmit,
@@ -26,6 +27,20 @@ const Content = () => {
    const onSubmit = (value: FormTypes) => {
       console.log(value);
    };
+
+   const handleVisibility = (clickedQuestion: any) => {
+      const updatedValue = askedQuestions.map((questions: any) => {
+         if (questions.id === clickedQuestion.id) {
+            return {
+               ...questions,
+               visible: !clickedQuestion.visible,
+            };
+         }
+         return questions;
+      });
+      setQuestionsData(updatedValue);
+   };
+
    return (
       <section className="Content">
          <div className="border"></div>
@@ -98,28 +113,25 @@ const Content = () => {
 
          <div className="asked-questions">
             <h1>Frequently Asked Questions</h1>
-            <div className="dropdown-question-answer">
-               <button onClick={() => setClose(!close)}>
-                  <span>what is Netflix?</span>
-                  {close ? <AiOutlineClose /> : <AiOutlinePlus />}
-               </button>
-               <SmoothCollapse expanded={close}>
-                  <div className="answer">
-                     <p>
-                        Netflix is a streaming service that offers a wide
-                        variety of award-winning TV shows, movies, anime,
-                        documentaries, and more on thousands of
-                        internet-connected devices.
-                     </p>
-                     <p>
-                        You can watch as much as you want, whenever you want
-                        without a single commercial – all for one low monthly
-                        price. There's always something new to discover and new
-                        TV shows and movies are added every week!
-                     </p>
-                  </div>
-               </SmoothCollapse>
-            </div>
+            {questinsData.map((questions: any) => (
+               <div key={questions.id} className="dropdown-question-answer">
+                  <button onClick={() => handleVisibility(questions)}>
+                     <span>{questions.question}</span>
+                     {questions.visible ? (
+                        <AiOutlineClose />
+                     ) : (
+                        <AiOutlinePlus />
+                     )}
+                  </button>
+                  <SmoothCollapse expanded={questions.visible}>
+                     <div className="answer">
+                        {questions.answers.map((answer: string, i: number) => (
+                           <p key={i}>{answer}</p>
+                        ))}
+                     </div>
+                  </SmoothCollapse>
+               </div>
+            ))}
          </div>
          <div className="signup">
             <p>
